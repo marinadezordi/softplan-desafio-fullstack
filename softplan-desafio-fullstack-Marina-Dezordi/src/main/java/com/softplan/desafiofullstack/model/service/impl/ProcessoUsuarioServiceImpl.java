@@ -2,6 +2,7 @@ package com.softplan.desafiofullstack.model.service.impl;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
@@ -10,7 +11,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.softplan.desafiofullstack.exception.RegraNegocioException;
+import com.softplan.desafiofullstack.model.entity.Processo;
 import com.softplan.desafiofullstack.model.entity.ProcessoUsuario;
+import com.softplan.desafiofullstack.model.entity.ProcessoUsuarioId;
 import com.softplan.desafiofullstack.model.enums.StatusProcesso;
 import com.softplan.desafiofullstack.model.repository.ProcessoUsuarioRepository;
 import com.softplan.desafiofullstack.model.service.ProcessoUsuarioService;
@@ -66,8 +69,7 @@ public class ProcessoUsuarioServiceImpl implements ProcessoUsuarioService {
 
 	@Override
 	public void atualizarParecer(ProcessoUsuario processoUsuario, String parecer) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub	
 	}
 
 	@Override
@@ -89,7 +91,12 @@ public class ProcessoUsuarioServiceImpl implements ProcessoUsuarioService {
 		if(processoUsuario.getStatus() == null) {
 			throw new RegraNegocioException("Informe um Status.");
 		}
-}
+	}
 
+	@Override
+	public Optional<ProcessoUsuario> obterPorId(Long processo, Long usuarioTriador) {
+		// TODO Auto-generated method stub
+		return repository.findById(new ProcessoUsuarioId (processo, usuarioTriador));
+	}
 
 }

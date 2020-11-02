@@ -4,34 +4,32 @@ import javax.persistence.*;
 import com.softplan.desafiofullstack.model.enums.StatusProcesso;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 
 @Entity
 @Table(name = "processousuario", schema= "gerproc")
 @Builder
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProcessoUsuario {
-	/*
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@ManyToOne
-	@JoinColumn(name = "processo")
-	private Long processo;
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@ManyToOne
-	@JoinColumn(name = "usuariotriador")
-	private Long usuariotriador;
-	*/
-	
-	@ManyToOne
-	@JoinColumn(name = "usuariofinalizador")
-	private Usuario usuariofinalizador;
-	
 	
 	@EmbeddedId
 	private ProcessoUsuarioId id;
+	
+
+	/*//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@ManyToOne
+	@JoinColumn(name = "processo")
+	private Processo processo;
+	
+
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@ManyToOne
+	@JoinColumn(name = "usuariotriador")
+	private Usuario usuariotriador;*/
 	
 	@Column(name = "status")
 	@Enumerated(value = EnumType.STRING)
@@ -40,4 +38,9 @@ public class ProcessoUsuario {
 	@Column(name = "parecer")
 	private String parecer;
 
+	@ManyToOne
+	@JoinColumn(name = "usuariofinalizador")
+	private Usuario usuariofinalizador;
+	
+	
 }

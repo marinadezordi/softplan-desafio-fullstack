@@ -1,4 +1,4 @@
-######INSTRUÇÕES PARA O PROJETO#######
+### INSTRUÇÕES PARA O PROJETO
 
 BANCO DE DADOS
 POSTGRESQL: Utilizar o script criacaoBancoDeDados.sql para criar a esstrutura de banco de dados necessária.

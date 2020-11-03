@@ -1,3 +1,63 @@
+######INSTRUÇÕES PARA O PROJETO#######
+
+BANCO DE DADOS
+POSTGRESQL: Utilizar o script criacaoBancoDeDados.sql para criar a esstrutura de banco de dados necessária.
+
+APLICAÇÃO BACKEND: Java, SpringBoot 2.3.5, Junit 5, Maven
+Projeto:softplan-desafio-fullstack-Marina-Dezordi
+Como não foi possível terminar o projeto segue procedimento para teste.
+-- Executar a aplicação
+--Utilizar um testador de API: eu estava utilizando o Insomnia
+
+-- Teste 1 - Salvar Usuário - POST: 
+	URL: http://localhost:8080/api/usuarios
+	JSON: {
+	"email": "email@email.com",
+	"nome": "Usuario",
+	"senha": "123",
+  	"tipousuario": "TRIADOR"
+	}
+
+-- Teste 1.1 - Salvar Usuário - POST: 
+	URL: http://localhost:8080/api/usuarios
+	JSON: {
+	"email": "email2@email.com",
+	"nome": "Usuario2",
+	"senha": "123",
+  	"tipousuario": "FINALIZADOR"
+	}
+
+--Teste 2 - Autenticar Usuário - POST
+	URL: http://localhost:8080/api/usuarios/autenticar
+	JSON: {
+	"email": "email@email.com",
+	"senha": "123"
+	}
+
+--Teste 3 - Salvar Processo - POST
+	URL: http://localhost:8080/api/processos
+	JSON: {
+	"nome": "Processo 1",
+	"descricao": "Meu primeiro processo"
+	}
+
+
+--Teste 4 - Alterar Processo - PUT
+	URL:  http://localhost:8080/api/processos/1
+	JSON: {
+	"nome": "Processo alterado",
+	"descricao": "Meu primeiro processo alterado"
+	}
+
+--Teste 5 - Atribuir Processo a Usuário
+	URL:  http://localhost:8080/api/processos
+	QUERY: ?descricao=alterado
+
+--Teste 6 - Filtrat Processo vinculado a Usuário
+	URL:  http://localhost:8080/api/processousuarios
+	QUERY: ?processo=1&usuarioTriador=1&usuarioFinalizador=2
+	}
+
 # Desafio implementador fullstack
 
 Seja parte da jornada de transformação digital no Brasil.
